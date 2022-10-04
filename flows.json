@@ -1,0 +1,140 @@
+[
+    {
+        "id": "ed977e39c2b6c879",
+        "type": "subflow",
+        "name": "zig sim",
+        "info": "You can download the ZIG SIM application to your device from the following URLs.\n\n- ZIG SIM for iPhone or iPad\n  https://apps.apple.com/jp/app/zig-sim/id1112909974\n- ZIG SIM for Android device\n  https://play.google.com/store/apps/details?id=com.oneten.drive.zig_sim\n\nAfter specifying the IP address and port number of your PC which executes Node-RED, the ZIG SIM application will send the sensor data to this node.",
+        "category": "network",
+        "in": [],
+        "out": [
+            {
+                "x": 440,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "a4b8f589bf0e4977",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "port",
+                "type": "num",
+                "value": "50000",
+                "ui": {
+                    "icon": "font-awesome/fa-anchor",
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "num"
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {
+            "module": "node-red-contrib-zigsim",
+            "type": "zigsim",
+            "version": "0.0.1",
+            "author": "Kazuhito Yokoi <kazuhitoyokoi@nodered.jp>",
+            "desc": "A node to retrieve the sensor data from ZIG SIM application",
+            "keywords": "node-red,zigsim",
+            "license": "Apache-2.0"
+        },
+        "color": "#3FADB5",
+        "icon": "node-red/bridge-dash.svg",
+        "status": {
+            "x": 320,
+            "y": 220,
+            "wires": [
+                {
+                    "id": "602173a807426333",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "2f14ca2ed2d037e1",
+        "type": "tcp in",
+        "z": "ed977e39c2b6c879",
+        "name": "",
+        "server": "server",
+        "host": "",
+        "port": "${port}",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "",
+        "topic": "",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "a4b8f589bf0e4977"
+            ]
+        ]
+    },
+    {
+        "id": "a4b8f589bf0e4977",
+        "type": "json",
+        "z": "ed977e39c2b6c879",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 350,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b287196e63fc5df",
+        "type": "udp in",
+        "z": "ed977e39c2b6c879",
+        "name": "",
+        "iface": "",
+        "port": "${port}",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "a4b8f589bf0e4977"
+            ]
+        ]
+    },
+    {
+        "id": "602173a807426333",
+        "type": "status",
+        "z": "ed977e39c2b6c879",
+        "name": "",
+        "scope": null,
+        "x": 200,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1a034e213d56477",
+        "type": "subflow:ed977e39c2b6c879",
+        "z": "694f238aafd30890",
+        "name": "",
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "930bcc94e9c8522f"
+            ]
+        ]
+    }
+]
