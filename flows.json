@@ -37,7 +37,7 @@
         "meta": {
             "module": "node-red-contrib-zigsim",
             "type": "zigsim",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "author": "Kazuhito Yokoi <kazuhitoyokoi@nodered.jp>",
             "desc": "A node to retrieve the sensor data from ZIG SIM application",
             "keywords": "node-red,zigsim",
